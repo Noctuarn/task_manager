@@ -13,9 +13,6 @@ const SideBar = () => {
     router.push(path)
   } 
 
-  console.log(pathName);
-  
-
   return (
     <aside className="h-full rounded-xl w-[15%] lg:w-[20%] bg-main-light shadow-2xl shadow-blue-100 py-12 flex flex-col">
       <div className="w-full flex px-5 items-center gap-4">
