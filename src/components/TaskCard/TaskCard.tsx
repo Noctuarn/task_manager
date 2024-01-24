@@ -2,11 +2,6 @@ import React from "react";
 import Link from "next/link";
 
 const TaskCard = ({ id, title, description, isComplete, tags }: Task) => {
-  const color = "red";
-
-  console.log(color);
-  
-
   return (
     <div className="flex flex-col justify-between bg-white shadow-lg shadow-gray-500 p-4 w-[360px] h-[300px] rounded-3xl">
       <div>
@@ -31,8 +26,9 @@ const TaskCard = ({ id, title, description, isComplete, tags }: Task) => {
       <div className="flex flex-wrap gap-3 rounded-2xl">
         {tags.map((t) => (
           <span
+            style={{ backgroundColor: t.color }}
             key={t.id + "tag"}
-            className={`bg-[${color}] text-sm text-white font-bold rounded-xl px-2 py-1`}
+            className={`text-sm text-white font-bold rounded-xl px-2 py-1`}
           >
             {t.value}
           </span>
