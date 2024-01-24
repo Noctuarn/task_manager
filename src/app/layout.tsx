@@ -23,7 +23,7 @@ export default function RootLayout({
       >
         <SideBar />
 
-        <article className="w-[85%] lg:w-[79%] bg-main-light h-full overflow-y-auto rounded-lg shadow-lg shadow-blue-100 pt-12 pb-6 px-4">
+        <article className="w-[85%] lg:w-[79%] bg-main-light h-full overflow-y-auto rounded-lg shadow-lg shadow-blue-100 pt-12 pb-10 px-4">
           {children}
         </article>
       </body>
