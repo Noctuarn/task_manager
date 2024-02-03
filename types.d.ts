@@ -1,21 +1,20 @@
 interface Task {
-    _id?: number,
-    id: number,
+    id: string,
     title: string,
     description: string,
-    tags: Tag[],
+    tags?: Tag[],
     isComplete: boolean,
     subtasks: Subtask[]
 } 
 
 interface Subtask {
-    id: number,
+    id: string,
     title: string,
     isComplete: boolean
 }
 
 interface Tag {
-    id: number,
+    id: string,
     value: string,
     color: string
 }

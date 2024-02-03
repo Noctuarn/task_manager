@@ -23,17 +23,19 @@ const TaskCard = ({ id, title, description, isComplete, tags }: Task) => {
         <p className="mb-5 overflow-y-auto">{description}</p>
       </div>
 
-      <div className="flex flex-wrap gap-3 rounded-2xl">
-        {tags.map((t) => (
-          <span
-            style={{ backgroundColor: t.color }}
-            key={t.id + "tag"}
-            className={`text-sm text-white font-bold rounded-xl px-2 py-1`}
-          >
-            {t.value}
-          </span>
-        ))}
-      </div>
+      {tags ? (
+        <div className="flex flex-wrap gap-3 rounded-2xl">
+          {tags.map((t) => (
+            <span
+              style={{ backgroundColor: t.color }}
+              key={t.id + "tag"}
+              className={`text-sm text-white font-bold rounded-xl px-2 py-1`}
+            >
+              {t.value}
+            </span>
+          ))}
+        </div>
+      ) : null}
     </div>
   );
 };

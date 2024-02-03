@@ -1,16 +1,11 @@
 import TaskCard from "@/components/TaskCard/TaskCard";
 import AddNewCard from "@/components/AddNewCard/AddNewCard";
+import prisma from "../../prisma/index.mjs"
 
 const Home = async () => {
   let data: Task[] = [];
-
-  try {
-    const response = await fetch("http://localhost:5000/tasks", {cache: "no-cache"});
-    data = await response.json();
-  } catch (error) {
-    console.error(error);
-  }
-
+  data = await prisma.task.findMany();
+  
   return (
     <main className="flex flex-col">
       <h1 className="text-2xl font-bold">All tasks</h1>
@@ -27,7 +22,7 @@ const Home = async () => {
             key={el.id + "taskcard"}
           />
         ))}
-        <AddNewCard/>
+        <AddNewCard />
       </div>
     </main>
   );

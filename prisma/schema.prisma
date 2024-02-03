@@ -12,7 +12,7 @@ model Task {
   title       String
   description String
   tagId       String[]  @db.ObjectId
-  tags        Tag[]    @relation(fields: [tagId], references: [id])
+  tags        Tag[]     @relation(fields: [tagId], references: [id])  // змінено [tags] на [tagId]
   isComplete  Boolean   @default(false)
   subtasks    Subtask[]
 }
@@ -21,12 +21,13 @@ model Tag {
   id    String @id @default(auto()) @map("_id") @db.ObjectId
   title String @unique
   color String
-  taskId String[] @db.ObjectId
-  tasks Task[] @relation(fields: [taskId], references: [id])
+  taskIds String[] @db.ObjectId
+  tasks Task[] @relation(fields: [taskIds], references: [id])
 }
 
 type Subtask {
-  id    String
-  title      String
+  id        String
+  title     String
   isComplete Boolean
 }
+

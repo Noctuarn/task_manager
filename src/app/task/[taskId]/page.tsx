@@ -4,20 +4,20 @@ import { notFound } from "next/navigation";
 import { MdDelete } from "react-icons/md";
 import { MdOutlineEdit } from "react-icons/md";
 
+import prisma from "../../../../prisma/index.mjs";
+
 type Props = {
   params: { taskId: number };
 };
 
 const TaskPage = async ({ params: { taskId } }: Props) => {
-  let data: Task | undefined = undefined;
+  let data: Task;
 
-  try {
-    data = await fetch(`http://localhost:5000/tasks/${taskId}`, {
-      next: { revalidate: 60 },
-    }).then((data) => data.json());
-  } catch (err) {
-    console.error(err);
-  }
+  data = await prisma.task.findFirst({
+    where: {
+      id : taskId.toString()
+    }
+  })
 
   return (
     <Suspense fallback={<h4>Loading...</h4>}>
@@ -70,7 +70,7 @@ const TaskPage = async ({ params: { taskId } }: Props) => {
         )}
 
         {/* Tags */}
-        {data?.tags.length !== 0 ? (
+        { data?.tags ? (
           <div>
 
             <div className="flex justify-between items-center mt-10 mb-6">
