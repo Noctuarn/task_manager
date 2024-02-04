@@ -3,7 +3,6 @@
 import { MdDelete } from "react-icons/md";
 import { useRouter } from "next/navigation";
 import React from "react";
-import { revalidatePath } from "next/cache";
 
 type Props = {
   taskId: string;

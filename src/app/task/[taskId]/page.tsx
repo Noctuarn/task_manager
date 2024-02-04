@@ -1,9 +1,12 @@
 import { Suspense } from "react";
-import Subtask from "@/components/Subtask/Subtask";
 import { notFound } from "next/navigation";
-import DeleteButton from "./components/DeleteButton";
 import { MdOutlineEdit } from "react-icons/md";
 import prisma from "../../../../prisma/index.mjs";
+
+import Subtask from "@/components/Subtask/Subtask";
+import DeleteButton from "./components/DeleteButton";
+import CompleteButton from "./components/CompleteButton";
+
 
 type Props = {
   params: { taskId: number };
@@ -27,9 +30,7 @@ const TaskPage = async ({ params: { taskId } }: Props) => {
           <h4 className="text-3xl font-bold">{data?.title}</h4>
 
           <div className="flex gap-4 items-center">
-            <button className="bg-red-600 text-white font-bold p-3 rounded-xl">
-              Incompleted
-            </button>
+           <CompleteButton isComplete={data.isComplete} taskId={taskId.toString()}/>
 
             <button className="hover:-translate-y-2 transition-all grid place-items-center text-2xl rounded-full w-[45px] h-[45px] bg-black text-white cursor-pointer">
               <MdOutlineEdit className="text-3xl" />
