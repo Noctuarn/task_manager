@@ -32,7 +32,6 @@ const AddNewTaskPage = async () => {
 
     revalidatePath("/");
     redirect("/")
-
   };
 
   return (

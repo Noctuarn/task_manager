@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import React from "react";
 import { useRouter } from "next/navigation";
@@ -10,18 +10,15 @@ type Props = {
 };
 
 const CompleteButton = ({ taskId, isComplete }: Props) => {
-  
-
-    const router = useRouter();
+  const router = useRouter();
 
   const setIsCompleteHandler = () => {
-    setIsComplete(taskId, !isComplete)
+    setIsComplete(taskId, !isComplete);
 
-    router.refresh()
-  }
-  
-  
-    return (
+    router.refresh();
+  };
+
+  return (
     <button
       onClick={setIsCompleteHandler}
       className={`${

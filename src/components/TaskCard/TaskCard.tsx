@@ -14,7 +14,7 @@ const TaskCard = ({ id, title, description, isComplete, tags }: Task) => {
           </Link>
           <span
             className={`rounded-2xl text-sm px-2 h-fit py-1 text-white font-bold ${
-              isComplete ? "bg-green-500" : "bg-red-600"
+              isComplete ? "bg-green-900" : "bg-red-600"
             }`}
           >
             {isComplete ? "Complete" : "Incomplete"}

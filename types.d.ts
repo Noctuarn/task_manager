@@ -10,7 +10,7 @@ interface Task {
 interface Subtask {
     id: string,
     title: string,
-    isComplete: boolean
+    isComplete: boolean,
 }
 
 interface Tag {
